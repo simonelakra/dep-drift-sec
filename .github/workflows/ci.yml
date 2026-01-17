@@ -49,4 +49,4 @@ jobs:
       - name: Scan with latest published version
         shell: bash
         run: |
-          npx dep-drift-sec check --path . || (exit_code=$?; [ $exit_code -le 3 ] || exit $exit_code)
+          npx -y dep-drift-sec check --path . || (exit_code=$?; [ $exit_code -le 3 ] || exit $exit_code)
