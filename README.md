@@ -58,6 +58,13 @@ node dist/cli/index.js check
 
 When run with `--json`, the CLI produces a versioned, stable JSON structure.
 
+## Why dep-drift-sec?
+Most tools detect vulnerabilities.
+dep-drift-sec detects **structural risk**:
+- unmaintained packages
+- transitive risk chains
+- dependency drift
+
 ### Example Output
 ```json
 {
