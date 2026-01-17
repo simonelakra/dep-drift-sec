@@ -36,17 +36,3 @@ jobs:
       shell: bash
       run: |
         node dist/cli/index.js check --json || (exit_code=$?; [ $exit_code -le 3 ] || exit $exit_code)
-
-  security-scan:
-    name: Security Scan (npx published)
-    runs-on: ubuntu-latest
-    needs: test-and-build
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - name: Scan with latest published version
-        shell: bash
-        run: |
-          npx -y --package=dep-drift-sec@0.1.1 dep-drift-sec check --path . || (exit_code=$?; [ $exit_code -le 3 ] || exit $exit_code)
