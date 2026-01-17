@@ -1,13 +1,22 @@
 {
   "name": "dep-drift-sec",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "index.js",
   "scripts": {
     "test": "vitest",
     "build": "tsc",
     "scan": "node dist/cli/index.js check"
   },
-  "keywords": [],
+  "keywords": [
+    "security",
+    "dependency",
+    "drift",
+    "audit",
+    "cli",
+    "supply-chain",
+    "vulnerability",
+    "node"
+  ],
   "author": "",
   "license": "MIT",
   "engines": {
