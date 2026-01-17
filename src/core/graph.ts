@@ -14,11 +14,10 @@ export function buildDependencyGraph(
         ...(packageJson.devDependencies || {})
     };
 
-    // Build a map of dependency name -> list of parents that require it
-    // We use both the path (for nested npm v3 style) AND the dependencies field (for flat npm v7+ style)
+    // Build map of dependency -> parents using path nesting and dependencies field
     const parentMap: Record<string, Set<string>> = {};
     for (const [path, pkg] of Object.entries(lockPackages)) {
-        // 1. From Path Nesting (Fallback for minimized lockfiles or npm < 7)
+        // 1. Path-based detection (fallback)
         const pathParts = path.split('node_modules/');
         if (pathParts.length > 2) {
             const depName = pathParts[pathParts.length - 1];
@@ -27,7 +26,7 @@ export function buildDependencyGraph(
             parentMap[depName].add(parentName);
         }
 
-        // 2. From dependencies field (Standard npm behavior)
+        // 2. Dependencies field detection
         const currentPkgName = path === '' ? (packageJson.name || 'root') : path.split('node_modules/').pop()!;
         const pkgDeps = {
             ...(pkg.dependencies || {}),
@@ -58,9 +57,7 @@ export function buildDependencyGraph(
             const isTransitive = !directDeps[name];
             const meta = metadataMap[name];
 
-            // Direct parents are those who have this dependency in their path segment
-            // but we filter out 'root' for the introducedBy array as requested previously
-            // actually, if it's transitive, we want the non-root parents.
+            // Collect unique non-root parents
             const parents = Array.from(parentMap[name] || []).filter(p => p !== (packageJson.name || 'root'));
 
             dependencies.push({

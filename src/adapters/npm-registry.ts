@@ -18,9 +18,7 @@ export async function fetchNpmMetadata(packageName: string): Promise<RegistryMet
 export async function fetchAllMetadata(packageNames: string[]): Promise<Record<string, RegistryMetadata>> {
     const metadataMap: Record<string, RegistryMetadata> = {};
 
-    // For MVP, we fetch sequentially or in small chunks to avoid registry rate limits
-    // but since we might have many transitive deps, we'll do them in parallel with a limit if needed.
-    // Here we'll just do a simple Promise.all for now.
+    // Fetch metadata for all packages
 
     const results = await Promise.all(
         packageNames.map(async (name) => {

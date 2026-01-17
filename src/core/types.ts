@@ -98,16 +98,8 @@ export const ScanResultSchema = AnalysisReportSchema.extend({
 });
 
 export type AnalysisReport = z.infer<typeof AnalysisReportSchema>;
-/**
- * ScanMetadata represents the execution context of a scan.
- * This is part of the v1 public contract.
- */
 export type ScanMetadata = z.infer<typeof ScanMetadataSchema>;
 
-/**
- * ScanResultV1 is the full output structure for a dep-drift-sec scan.
- * This is a versioned public contract. Breaking changes require a new version.
- */
 export type ScanResultV1 = z.infer<typeof ScanResultSchema>;
 
 // Internal project data before normalization

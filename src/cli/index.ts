@@ -129,10 +129,7 @@ program
             if (!options.json) {
                 console.error(`Error: ${error.message}`);
             } else {
-                // In JSON mode, we should still output valid JSON if possible,
-                // but for a fatal initialization error, we'll just exit with code 4.
-                // The requirements say "JSON output is always valid when --json is passed",
-                // so let's try to wrap the error.
+                // Ensure valid JSON output for errors when in JSON mode
                 process.stdout.write(JSON.stringify({ error: error.message, exitCode: 4 }) + '\n');
             }
             process.exitCode = 4;
