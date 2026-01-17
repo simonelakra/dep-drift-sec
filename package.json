@@ -13,6 +13,14 @@
   "engines": {
     "node": ">=18"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonelakra/dep-drift-sec.git"
+  },
+  "bugs": {
+    "url": "https://github.com/simonelakra/dep-drift-sec/issues"
+  },
+  "homepage": "https://github.com/simonelakra/dep-drift-sec#readme",
   "files": [
     "dist"
   ],
