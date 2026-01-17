@@ -1,0 +1,62 @@
+{
+  "summary": {
+    "driftCount": 0,
+    "securityCount": 3,
+    "riskLevel": "medium",
+    "riskReason": "Medium risks detected (unmaintained packages or version drift).",
+    "recommendedAction": "warn",
+    "recommendedExitCode": 2
+  },
+  "drift": [],
+  "security": [
+    {
+      "dependencyName": "request",
+      "transitive": false,
+      "introducedBy": [],
+      "description": "Simplified HTTP request client.",
+      "issues": [
+        {
+          "type": "unmaintained",
+          "reason": "The last update for \"request\" was on 2/11/2020 (more than 18 months ago). A library that is no longer updated may contain unpatched security vulnerabilities or become incompatible with newer Node.js versions.",
+          "riskLevel": "medium",
+          "details": {
+            "lastUpdate": "2020-02-11",
+            "monthsSinceLastUpdate": 71,
+            "version": "2.88.2",
+            "description": "Simplified HTTP request client."
+          }
+        }
+      ],
+      "overallRisk": "medium"
+    },
+    {
+      "dependencyName": "har-validator",
+      "transitive": true,
+      "introducedBy": [],
+      "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema",
+      "issues": [
+        {
+          "type": "unmaintained",
+          "reason": "The last update for \"har-validator\" was on 7/30/2020 (more than 18 months ago). A library that is no longer updated may contain unpatched security vulnerabilities or become incompatible with newer Node.js versions.",
+          "riskLevel": "medium",
+          "details": {
+            "lastUpdate": "2020-07-30",
+            "monthsSinceLastUpdate": 66,
+            "version": "5.1.5",
+            "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema"
+          }
+        },
+        {
+          "type": "single-maintainer",
+          "reason": "\"har-validator\" is managed by only one person. This is risky because if this person stops maintaining it or if their account is compromised, there is no one else to fix issues quickly.",
+          "riskLevel": "low",
+          "details": {
+            "maintainerCount": 1,
+            "description": "Extremely fast HTTP Archive (HAR) validator using JSON Schema"
+          }
+        }
+      ],
+      "overallRisk": "medium"
+    }
+  ]
+}

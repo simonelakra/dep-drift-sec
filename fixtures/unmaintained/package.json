@@ -1,0 +1,7 @@
+{
+    "name": "fixture-unmaintained",
+    "version": "1.0.0",
+    "dependencies": {
+        "deprecated-lib": "1.0.0"
+    }
+}

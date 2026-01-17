@@ -1,0 +1,8 @@
+{
+  "name": "fixture-mixed",
+  "version": "1.0.0",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "request": "2.88.2"
+  }
+}
